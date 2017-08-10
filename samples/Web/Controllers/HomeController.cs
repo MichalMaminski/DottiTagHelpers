@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Bogus;
 
 namespace Web.Controllers
 {
@@ -30,6 +28,20 @@ namespace Web.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+
+        public IActionResult ListDemo()
+        {
+            var dataGenerator = new Faker();
+
+            var sampleList = new List<string>(10);
+
+            for (int i = 0; i < sampleList.Capacity; i++)
+            {
+                sampleList.Add(dataGenerator.Name.FindName());
+            }
+
+            return View(sampleList);
         }
     }
 }

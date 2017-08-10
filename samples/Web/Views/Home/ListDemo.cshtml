@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+@using Dotti.AspNetCore.TagHelpers
+@{
+    ViewData["Title"] = "List demo";
+}
+<div class="row">
+    
+    <div class="col-xs-12">
+        <h3>Example of unordered list generated from list tag helper</h3>
+        <list asp-items="Model" asp-list-type="@ListTag.Unordered"></list>
+    </div>
+</div>
